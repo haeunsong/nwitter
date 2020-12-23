@@ -33,6 +33,7 @@ const Auth = () => {
     }
   };
 
+  const toggleAccount = () => setNewAccount((prev) => !prev);
   
 
   return (
@@ -53,14 +54,14 @@ const Auth = () => {
           required value={password} 
           onChange={onChange}
           />
-        <input type="submit" value={newAccount ? "Create Account" : "Log In"} />
-
+        <input type="submit" value={newAccount ? "계정 만들기" : "로그인하기"} />
       </form>
+      <span onClick={toggleAccount}>{newAccount ? "로그인하기" : "계정 만들기" }</span>
       <div>
         <button>Continue with Google</button>
         <button>Continue with GitHub</button>
 
-        {alert(error)}
+        
       </div>
     </div>
   )
