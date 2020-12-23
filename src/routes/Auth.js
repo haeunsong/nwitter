@@ -5,6 +5,7 @@ const Auth = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [newAccount,setNewAccount] = useState(true);
+  const [error,setError] = useState("");
 
   const onChange = (e) => {
     const {target: {name,value}}=e;
@@ -28,9 +29,12 @@ const Auth = () => {
 
       console.log(data);
     }catch (error) {
-      console.log(error);
+      setError(error.message);
     }
-  }
+  };
+
+  
+
   return (
     <div>
 
@@ -55,6 +59,8 @@ const Auth = () => {
       <div>
         <button>Continue with Google</button>
         <button>Continue with GitHub</button>
+
+        {alert(error)}
       </div>
     </div>
   )
